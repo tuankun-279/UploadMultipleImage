@@ -1,0 +1,45 @@
+﻿@model UploadImg2Table.Models.Support
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Support</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Summary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Summary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileDetail)
+        </dt>
+
+        <dd>
+            @foreach (var item in ViewBag.file)
+            {
+                <img src="~/Images/@item.FileName" alt="@item.FileName"/>
+            }
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SupportId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
